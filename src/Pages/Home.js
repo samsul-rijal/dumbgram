@@ -2,6 +2,7 @@ import React from 'react'
 import {useState} from 'react'
 import { Row, Col, Container, Button } from 'react-bootstrap'
 import '../css/Home.css';
+import '../css/Login.css';
 import Dumbgram from '../img/Dumbgram.png'
 import Image1 from '../img/Image1.png'
 import Image2 from '../img/Image2.png'
@@ -11,17 +12,29 @@ import Image5 from '../img/Image5.png'
 import Image6 from '../img/Image6.png'
 import Image7 from '../img/Image7.png'
 import Image8 from '../img/Image8.png'
-import Login from '../Components/Login'
-import Register from '../Components/Register'
-import ModalLogin from '../Components/ModalLogin'
-import ModalRegister from '../Components/ModalRegister'
+import ModalRegisterLogin from '../Components/ModalRegisterLogin'
 
 function LandingPage() {
     const [modalShowLogin, setModalShowLogin] = React.useState(false);
     const [modalShowRegister, setModalShowRegister] = React.useState(false);
 
+    const [show, setShow] = useState(false);
+    const [nameModal, setNameModal] = useState('');
+
+    const handleModalLogin = () => {
+        setShow(!show);
+        setNameModal('login');
+      }
+    
+      const handleModalRegister = () => {
+        setShow(!show);
+        setNameModal('register');
+      }
+
     return (
         <div className='hero-container'>
+          <ModalRegisterLogin show={ show } nameModal={ nameModal } handleClose={ setShow } handleChangeModal={ setNameModal } />
+
             <Container>
                 <Row>
                     <Col lg={5}>
@@ -32,25 +45,15 @@ function LandingPage() {
                             </div>
 
                             <p className="kidstitle">Join now, share your creations with another people and enjoy other creations.</p>
-
+                            <ModalRegisterLogin />
                             <div className="button">
-                                <button className="btn-login" onClick={() => setModalShowLogin(true)}>
+                                <button className="btn-login" onClick={handleModalLogin}>
                                 Login
                                 </button>
                                 
-                                <button className="btn-register" onClick={() => setModalShowRegister(true)}>
+                                <button className="btn-register" onClick={handleModalRegister}>
                                     Register
                                 </button>
-
-                                <ModalLogin
-                                show={modalShowLogin}
-                                onHide={() => setModalShowLogin(false)}
-                                />
-                        
-                                <ModalRegister
-                                show={modalShowRegister}
-                                onHide={() => setModalShowRegister(false)}
-                                />
                             </div>
                         </div>
                     </Col>

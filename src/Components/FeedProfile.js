@@ -5,22 +5,22 @@ import Dumbgram from '../img/Dumbgram.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faSignInAlt, faHome, faCompass } from '@fortawesome/free-solid-svg-icons';
 import Ellipse1 from '../img/Ellipse1.png'
-
+import { Link } from 'react-router-dom'
 
 function FeedProfile() {
     return(
         <div className="feed-left">
             <Navbar className="img-bar">
-                <a href="/">
+                <Link to="/">
                     <img className="img-bar" src={Dumbgram} alt="dumbgram" />
-                </a>
+                </Link>
             </Navbar>
 
             <Card className="bg-card text-center mt-3">
                 <div className="icon-edit">
-                    <a href="#">
+                    <Link href="#">
                         <FontAwesomeIcon className="ms-auto icon-edit me-5" icon={faEdit} />
-                    </a>
+                    </Link>
                 </div>
                 
                 <Card.Body>
@@ -52,12 +52,12 @@ function FeedProfile() {
                 <p className="bio">Rapper in Black Pink, Brand Ambasador Penshoppe</p>
                 
                 <div className="menu">
-                    <p> <a href="/feed" className="title-feed-a"><FontAwesomeIcon className="ms-auto me-3 icon-feed" icon={faHome} /><span className="title-feed">Feed</span></a></p>
-                    <p> <a href="/explore" className="title-feed-a"><FontAwesomeIcon className="ms-auto me-3 icon-explore" icon={faCompass} /><span className="title-explore">Explore</span></a></p>
+                    <p> <Link to="/feed" className="title-feed-a"><FontAwesomeIcon className="ms-auto me-3 icon-feed" icon={faHome} /><span className="title-feed">Feed</span></Link></p>
+                    <p> <Link to="/explore" className="title-feed-a"><FontAwesomeIcon className="ms-auto me-3 icon-explore" icon={faCompass} /><span className="title-explore">Explore</span></Link></p>
                 </div>
 
                 <div className="logout">
-                    <p><a href="/" className="title-feed-a"><FontAwesomeIcon className="ms-auto me-3 icon-logout" icon={faSignInAlt} /><span className="title-logout">Logout</span></a></p>
+                    <p><Link to="/" className="title-feed-a"><FontAwesomeIcon className="ms-auto me-3 icon-logout" icon={faSignInAlt} /><span className="title-logout">Logout</span></Link></p>
                 </div>
                 
             </Card>

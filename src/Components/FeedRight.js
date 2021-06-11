@@ -1,17 +1,25 @@
 import React from 'react'
 import '../css/Feed.css';
+import { useState } from 'react';
 import { Container, Navbar, InputGroup, FormControl, Button, Col, Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faPaperPlane, faPlus, faHeart, faComment  } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faPaperPlane, faPlus, faHeart, faComment, faBell } from '@fortawesome/free-solid-svg-icons';
 import EllipseIcon from '../img/EllipseIcon.png'
 import Image1 from '../img/Image1.png'
 import Image2 from '../img/Image2.png'
 import Image7 from '../img/Image7.png'
+import Notifikasi from '../Components/Notifikasi'
 
-function FeedRight() {
+function FeedRight(props) {
+    const { titleNav } = props;
+	const [showNotif, setShowNotif] = useState(false);	
+
+	const handleShowNotif = () => setShowNotif(!showNotif);
     return(
         <div>
             <Navbar fixed="top" className="navbar-right-feed">
+			<Notifikasi show={ showNotif } handleClose={ setShowNotif } />
                 <Container>
                     <InputGroup.Prepend>
                         <InputGroup.Text className="icon-serch-feed" id="basic-addon1"><FontAwesomeIcon icon={faSearch} /></InputGroup.Text>
@@ -19,20 +27,19 @@ function FeedRight() {
                     <FormControl className="search-feed" placeholder="Search" />
                     <p className="title-feed-right">Feed</p>
                     <Navbar.Toggle />
-
                     <Navbar.Collapse className="justify-content-end">
-                        {/* <Notifikasi /> */}
-                        <a href="#"><FontAwesomeIcon className="icon-Notifikasi" icon={faPaperPlane} /></a>
+                        <FontAwesomeIcon className="icon-Notifikasi" icon={faBell} onClick={ handleShowNotif } />
+                        <Link to="#"><FontAwesomeIcon className="icon-Notifikasi" icon={faPaperPlane} /></Link>
                         <Navbar.Text>
-                            <a href="/createpost">
+                            <Link to="/createpost">
                                 <Button className="button-post"><span className="plus"><FontAwesomeIcon className="icon-plus" icon={faPlus} /></span> &nbsp;<span className="create">Create Post</span></Button>
-                            </a>
+                            </Link>
                         </Navbar.Text>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
 
-            <div className="masoryholder" data-aos="fade-up">
+            <div className="masoryholder">
                 <Col md={4}>
                     <Card style={{ width: '18rem' }} className="cardfeed">
                         <Card.Img variant="top" className="imgfeed" src={Image1} />
