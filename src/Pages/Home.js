@@ -1,6 +1,6 @@
 import React from 'react'
 import {useState} from 'react'
-import { Row, Col, Container, Button } from 'react-bootstrap'
+import { Row, Col, Container } from 'react-bootstrap'
 import '../css/Home.css';
 import '../css/Login.css';
 import Dumbgram from '../img/Dumbgram.png'
@@ -14,10 +14,7 @@ import Image7 from '../img/Image7.png'
 import Image8 from '../img/Image8.png'
 import ModalRegisterLogin from '../Components/ModalRegisterLogin'
 
-function LandingPage() {
-    const [modalShowLogin, setModalShowLogin] = React.useState(false);
-    const [modalShowRegister, setModalShowRegister] = React.useState(false);
-
+function Home() {
     const [show, setShow] = useState(false);
     const [nameModal, setNameModal] = useState('');
 
@@ -82,4 +79,4 @@ function LandingPage() {
     )
 }
 
-export default LandingPage
+export default Home

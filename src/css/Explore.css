@@ -1,0 +1,17 @@
+.group-img-explore {
+    margin-top: 200px;
+    margin-left: 20px;
+}
+
+.card-explore {
+    background-color: #0B0B0B;
+    justify-content: space-around;
+    margin-left: 20px;
+    margin-top: 70px;
+  }
+  
+  .img-explore {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-bottom: -50px;
+  }

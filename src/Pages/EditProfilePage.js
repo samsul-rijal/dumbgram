@@ -1,23 +1,22 @@
 import React from 'react'
-import '../css/FeedPage.css';
 import {Row, Col} from 'react-bootstrap'
 import FeedProfile from '../Components/FeedProfile'
-import FeedExplore from '../Components/FeedExplore';
+import EditProfile from '../Components/EditProfile'
 
-function FeedPage() {
-    return(
+function EditProfilePage() {
+    return (
         <div>
             <Row>
-                <Col lg={4} className="feed-profile">
+                <Col lg={4} className="feed-profile" fixed="top">
                     <FeedProfile />
                 </Col>
 
                 <Col lg={8} className="feed-right">
-                    <FeedExplore />
+                    <EditProfile />
                 </Col>
             </Row>
         </div>
     )
 }
 
-export default FeedPage
+export default EditProfilePage

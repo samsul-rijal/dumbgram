@@ -1,13 +1,14 @@
 import React from 'react'
 import '../css/Feed.css';
+import '../css/MessageLeft.css';
 import { useState } from 'react';
 import { Container, Navbar, InputGroup, FormControl, Button, Col, Card } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faPaperPlane, faPlus, faBell  } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faPaperPlane, faPlus, faHeart, faComment, faBell } from '@fortawesome/free-solid-svg-icons';
 import Notifikasi from '../Components/Notifikasi'
 
-function CreatePost() {
+function MessageRight() {
     const [showNotif, setShowNotif] = useState(false);	
 
 	const handleShowNotif = () => setShowNotif(!showNotif);
@@ -20,7 +21,6 @@ function CreatePost() {
                         <InputGroup.Text className="icon-serch-feed" id="basic-addon1"><FontAwesomeIcon icon={faSearch} /></InputGroup.Text>
                     </InputGroup.Prepend>
                     <FormControl className="search-feed" placeholder="Search" />
-                    <p className="title-feed-right">Create Post</p>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <FontAwesomeIcon className="icon-Notifikasi" icon={faBell} onClick={ handleShowNotif } />
@@ -33,17 +33,9 @@ function CreatePost() {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-
-            <div className="button-upload">
-                <button className="btn-login">
-                    Upload Photos or Video
-                </button>
-                <FormControl className="caption" placeholder="Caption" />
-                
-            </div>
+            <p className="no-message">No Message</p>
         </div>
-        
     )
 }
 
-export default CreatePost
+export default MessageRight

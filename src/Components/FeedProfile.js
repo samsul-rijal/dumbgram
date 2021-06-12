@@ -18,7 +18,7 @@ function FeedProfile() {
 
             <Card className="bg-card text-center mt-3">
                 <div className="icon-edit">
-                    <Link href="#">
+                    <Link to="/editprofile">
                         <FontAwesomeIcon className="ms-auto icon-edit me-5" icon={faEdit} />
                     </Link>
                 </div>

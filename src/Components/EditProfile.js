@@ -1,13 +1,13 @@
 import React from 'react'
 import '../css/Feed.css';
 import { useState } from 'react';
-import { Container, Navbar, InputGroup, FormControl, Button, Col, Card } from 'react-bootstrap'
+import { Container, Navbar, InputGroup, FormControl, Button} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faPaperPlane, faPlus, faBell  } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom'
 import Notifikasi from '../Components/Notifikasi'
 
-function CreatePost() {
+function EditProfile() {
     const [showNotif, setShowNotif] = useState(false);	
 
 	const handleShowNotif = () => setShowNotif(!showNotif);
@@ -20,7 +20,7 @@ function CreatePost() {
                         <InputGroup.Text className="icon-serch-feed" id="basic-addon1"><FontAwesomeIcon icon={faSearch} /></InputGroup.Text>
                     </InputGroup.Prepend>
                     <FormControl className="search-feed" placeholder="Search" />
-                    <p className="title-feed-right">Create Post</p>
+                    <p className="title-feed-right">Edit Profile</p>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <FontAwesomeIcon className="icon-Notifikasi" icon={faBell} onClick={ handleShowNotif } />
@@ -36,14 +36,15 @@ function CreatePost() {
 
             <div className="button-upload">
                 <button className="btn-login">
-                    Upload Photos or Video
+                    Upload Photos
                 </button>
-                <FormControl className="caption" placeholder="Caption" />
-                
+                <FormControl className="input-name" placeholder="Name" />
+                <FormControl className="input-name" placeholder="Username" />
+                <FormControl className="caption" placeholder="Bio" />
             </div>
         </div>
         
     )
 }
 
-export default CreatePost
+export default EditProfile

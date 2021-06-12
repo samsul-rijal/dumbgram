@@ -1,6 +1,7 @@
 import React from 'react'
 import '../css/Feed.css';
 import {Navbar, Card, Row, Col} from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import Dumbgram from '../img/Dumbgram.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt, faHome, faCompass } from '@fortawesome/free-solid-svg-icons';
@@ -55,12 +56,12 @@ function ProfilePeople() {
                 <p className="title-desc">Nobody is Listening Out Now! <br /> www.inzayn.com</p>
                 
                 <div className="menu">
-                    <p> <a href="/feed" className="title-feed-a"><FontAwesomeIcon className="ms-auto me-3 icon-feed" icon={faHome} /><span className="title-feed">Feed</span></a></p>
-                    <p> <a href="/explore" className="title-feed-a"><FontAwesomeIcon className="ms-auto me-3 icon-explore" icon={faCompass} /><span className="title-explore">Explore</span></a></p>
+                    <p> <Link to="/feed" className="title-feed-a"><FontAwesomeIcon className="ms-auto me-3 icon-feed" icon={faHome} /><span className="title-feed">Feed</span></Link></p>
+                    <p> <Link to="/explore" className="title-feed-a"><FontAwesomeIcon className="ms-auto me-3 icon-explore" icon={faCompass} /><span className="title-explore">Explore</span></Link></p>
                 </div>
 
                 <div className="logout">
-                    <p><a href="/" className="title-feed-a"><FontAwesomeIcon className="ms-auto me-3 icon-logout" icon={faSignInAlt} /><span className="title-logout">Logout</span></a></p>
+                    <p><Link href="/" className="title-feed-a"><FontAwesomeIcon className="ms-auto me-3 icon-logout" icon={faSignInAlt} /><span className="title-logout">Logout</span></Link></p>
                 </div>
                 
             </Card>

@@ -13,8 +13,13 @@
 }
 
 .form-input {
+    width: 460px;
     height: 40px;
     background: rgba(210, 210, 210, 0.25);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
 }
 
 .btn-loginModal {

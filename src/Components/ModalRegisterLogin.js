@@ -23,11 +23,11 @@ function ModalRegisterLogin(props) {
                     <Modal.Body className="bg-dark">
                         <Form>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Control className="form-input" type="email" placeholder="Email" />
+                                <input className="form-input" type="email" placeholder="Email" />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
-                                <Form.Control className="form-input" type="password" placeholder="Password" />
+                                <input className="form-input" type="password" placeholder="Password" />
                             </Form.Group>
                         </Form>
 
@@ -54,19 +54,19 @@ function ModalRegisterLogin(props) {
                     <Modal.Body className="bg-dark">
                         <Form>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Control className="form-input" type="email" placeholder="Email" />
+                                <input className="form-input" type="email" placeholder="Email" />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Control className="form-input" type="email" placeholder="Name" />
+                                <input className="form-input" type="email" placeholder="Name" />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Control className="form-input" type="email" placeholder="Username" />
+                                <input className="form-input" type="email" placeholder="Username" />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formBasicPassword">
-                                <Form.Control className="form-input" type="password" placeholder="Password" />
+                                <input className="form-input" type="password" placeholder="Password" />
                             </Form.Group>
 
                             <Link to="/feed">
