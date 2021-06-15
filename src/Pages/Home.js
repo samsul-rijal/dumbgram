@@ -41,11 +41,11 @@ function Home() {
                                 <p>Share your best <br /> photos or videos</p>
                             </div>
 
-                            <p className="kidstitle">Join now, share your creations with another people and enjoy other creations.</p>
+                            <p className="desc-title">Join now, share your creations with another people and enjoy other creations.</p>
                             <ModalRegisterLogin />
                             <div className="button">
-                                <button className="btn-login" onClick={handleModalLogin}>
-                                Login
+                                <button variant="" className="btn-login" onClick={handleModalLogin}>
+                                    Login
                                 </button>
                                 
                                 <button className="btn-register" onClick={handleModalRegister}>

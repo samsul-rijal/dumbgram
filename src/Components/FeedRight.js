@@ -1,7 +1,9 @@
 import React from 'react'
 import '../css/Feed.css';
+import Notifikasi from '../Components/Notifikasi'
+import DetailFeed from '../Components/DetailFeed'
 import { useState } from 'react';
-import { Container, Navbar, InputGroup, FormControl, Button, Col, Card } from 'react-bootstrap'
+import { Container, Navbar, InputGroup, Button, Col, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faPaperPlane, faPlus, faHeart, faComment, faBell } from '@fortawesome/free-solid-svg-icons';
@@ -12,16 +14,18 @@ import Image3 from '../img/Image3.png'
 import Image4 from '../img/Image4.png'
 import Image7 from '../img/Image7.png'
 import Image9 from '../img/Image9.png'
-import Notifikasi from '../Components/Notifikasi'
 
 function FeedRight(props) {
 	const [showNotif, setShowNotif] = useState(false);	
-
 	const handleShowNotif = () => setShowNotif(!showNotif);
+
+    const [detailFeed, setDetailFeed] = useState(false);
+	const handleDetailFeed = () => setDetailFeed(!detailFeed);
     return(
         <div>
             <Navbar fixed="top" className="navbar-right-feed">
 			<Notifikasi show={ showNotif } handleClose={ setShowNotif } />
+            <DetailFeed show={ detailFeed } handleClose={ setDetailFeed } />
                 <Container>
                     <InputGroup.Prepend>
                         <InputGroup.Text className="icon-serch-feed" id="basic-addon1"><FontAwesomeIcon icon={faSearch} /></InputGroup.Text>
@@ -100,7 +104,7 @@ function FeedRight(props) {
 
                 <Col md={4}>
                     <Card style={{ width: '18rem' }} className="card-feed">
-                        <Card.Img variant="top" className="img-feed" src={Image3} />
+                        <Card.Img variant="top" className="img-feed" src={Image3} onClick={ handleDetailFeed } />
                         <Card.Body>
                             <Card.Text className="card-bodys">
                                 <Navbar class="prof-box">

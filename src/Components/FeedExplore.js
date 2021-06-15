@@ -2,9 +2,9 @@ import React from 'react'
 import '../css/Explore.css';
 import '../css/Feed.css';
 import { useState } from 'react';
-import { Container, Navbar, InputGroup, FormControl, Button, Col, Card, Row } from 'react-bootstrap'
+import { Container, Navbar, InputGroup, FormControl, Button, Col, Card } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faPaperPlane, faPlus, faHeart, faComment, faBell  } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faPaperPlane, faPlus, faBell  } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom'
 import Image1 from '../img/Image1.png'
 import Image2 from '../img/Image2.png'

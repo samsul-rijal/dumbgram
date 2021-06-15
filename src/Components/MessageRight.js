@@ -2,10 +2,10 @@ import React from 'react'
 import '../css/Feed.css';
 import '../css/MessageLeft.css';
 import { useState } from 'react';
-import { Container, Navbar, InputGroup, FormControl, Button, Col, Card } from 'react-bootstrap'
+import { Container, Navbar, InputGroup, FormControl, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faPaperPlane, faPlus, faHeart, faComment, faBell } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faPaperPlane, faPlus, faBell } from '@fortawesome/free-solid-svg-icons';
 import Notifikasi from '../Components/Notifikasi'
 
 function MessageRight() {

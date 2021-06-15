@@ -7,8 +7,8 @@ function ModalRegisterLogin(props) {
 
     let modal = null;
 
-    const handleChangeModalLogin = (e) => handleChangeModal('login');
-    const handleChangeModalRegister = (e) => handleChangeModal('register');
+    const handleChangeModalLogin = () => handleChangeModal('login');
+    const handleChangeModalRegister = () => handleChangeModal('register');
 
     if (nameModal === 'login') {
             modal = (
