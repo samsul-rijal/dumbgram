@@ -2,6 +2,7 @@ import React from 'react'
 import '../css/Feed.css';
 import Notifikasi from '../Components/Notifikasi'
 import DetailFeed from '../Components/DetailFeed'
+import { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { Container, Navbar, InputGroup, Button, Col, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
@@ -14,6 +15,8 @@ import Image3 from '../img/Image3.png'
 import Image4 from '../img/Image4.png'
 import Image7 from '../img/Image7.png'
 import Image9 from '../img/Image9.png'
+import { UserContext } from '../contexts/userContext'
+import { API } from '../config/api'
 
 function FeedRight(props) {
 	const [showNotif, setShowNotif] = useState(false);	
@@ -21,6 +24,29 @@ function FeedRight(props) {
 
     const [detailFeed, setDetailFeed] = useState(false);
 	const handleDetailFeed = () => setDetailFeed(!detailFeed);
+
+
+    const path = 'http://localhost:5000/uploads/'
+
+    const [state, dispatch] = useContext(UserContext);
+    console.log(state)
+
+    const [ follow, setFollow ] = useState([])
+
+    useEffect( async () => {
+        try {
+            const getFollowById = await API.get('/feed')
+            console.log(getFollowById)
+
+            setFollow(getFollowById.data.data.feeds)
+
+        } catch (error) {
+            console.log(error.response)
+
+        }
+    },[])
+
+    
     return(
         <div>
             <Navbar fixed="top" className="navbar-right-feed">
@@ -38,23 +64,24 @@ function FeedRight(props) {
                         <Link to="/message"><FontAwesomeIcon className="icon-Notifikasi" icon={faPaperPlane} /></Link>
                         <Navbar.Text>
                             <Link to="/createpost">
-                                <Button className="button-post"><span className="plus"><FontAwesomeIcon className="icon-plus" icon={faPlus} /></span> &nbsp;<span className="create">Create Post</span></Button>
+                                <button className="button-post"><span className="plus"><FontAwesomeIcon className="icon-plus" icon={faPlus} /></span> &nbsp;<span className="create">Create Post</span></button>
                             </Link>
                         </Navbar.Text>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-
+            
             <div className="card-head">
+                { follow.map((f) => (
                 <Col md={4}>
-                    <Card style={{ width: '18rem' }} className="card-feed">
-                        <Card.Img variant="top" className="img-feed" src={Image1} />
+                    <Card style={{ width: '17rem' }} className="card-feed">
+                        <Card.Img variant="top" className="img-feed" src={path + f.fileName}/>
                         <Card.Body>
                             <Card.Text className="card-bodys">
                                 <Navbar class="prof-box">
                                     <Link to="/profileexplore">
                                         <Navbar.Brand className="card-box-profile">
-                                            <img src={EllipseIcon} className="card-profile" alt="logo" />
+                                            <img src={path + f.user.image} className="card-profile" alt="logo" />
                                         </Navbar.Brand>
                                     </Link>
                                     <Navbar.Text className="ms-auto">
@@ -63,18 +90,28 @@ function FeedRight(props) {
                                         <FontAwesomeIcon className="card-icon" icon={faPaperPlane} />
                                     </Navbar.Text>
                                 </Navbar>
-                                <p className="name-post">zayn</p>
+                                <p className="name-post">{f.user.username}</p>
                             </Card.Text>
                             <Navbar className="nav-like">
                                 <Navbar.Text className="ms-auto">
-                                    <p className="num-like">126.100 Like</p>
+                                    <p className="num-like">{f.like} Like</p>
                                 </Navbar.Text>
                             </Navbar>
                         </Card.Body>
                     </Card>
                 </Col>
+                ))}
 
-                <Col md={2}>
+
+
+
+
+
+
+
+                
+
+                {/* <Col md={2}>
                     <Card style={{ width: '18rem' }} className="card-feed">
                         <Card.Img variant="top" className="img-feed" src={Image9} />
                         <Card.Body>
@@ -212,7 +249,7 @@ function FeedRight(props) {
                             </Navbar>
                         </Card.Body>
                     </Card>
-                </Col>
+                </Col> */}
             </div>
 
         </div>

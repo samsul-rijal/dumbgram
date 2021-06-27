@@ -26,7 +26,7 @@ function ProfilePeopleRight() {
                     <InputGroup.Prepend>
                         <InputGroup.Text className="icon-serch-feed" id="basic-addon1"><FontAwesomeIcon icon={faSearch} /></InputGroup.Text>
                     </InputGroup.Prepend>
-                    <FormControl className="search-feed" placeholder="Search" />
+                    <input className="search-feed" placeholder="Search" />
                     <p className="title-feed-right">Zayn, Feed</p>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
@@ -34,7 +34,7 @@ function ProfilePeopleRight() {
                         <Link to="#"><FontAwesomeIcon className="icon-Notifikasi" icon={faPaperPlane} /></Link>
                         <Navbar.Text>
                             <Link to="/createpost">
-                                <Button className="button-post"><span className="plus"><FontAwesomeIcon className="icon-plus" icon={faPlus} /></span> &nbsp;<span className="create">Create Post</span></Button>
+                                <button className="button-post"><span className="plus"><FontAwesomeIcon className="icon-plus" icon={faPlus} /></span> &nbsp;<span className="create">Create Post</span></button>
                             </Link>
                         </Navbar.Text>
                     </Navbar.Collapse>

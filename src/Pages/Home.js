@@ -1,6 +1,6 @@
-import React from 'react'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
+import ModalRegisterLogin from '../Components/ModalRegisterLogin'
 import '../css/Home.css';
 import '../css/Login.css';
 import Dumbgram from '../img/Dumbgram.png'
@@ -12,7 +12,6 @@ import Image5 from '../img/Image5.png'
 import Image6 from '../img/Image6.png'
 import Image7 from '../img/Image7.png'
 import Image8 from '../img/Image8.png'
-import ModalRegisterLogin from '../Components/ModalRegisterLogin'
 
 function Home() {
     const [show, setShow] = useState(false);
@@ -27,6 +26,7 @@ function Home() {
         setShow(!show);
         setNameModal('register');
       }
+
 
     return (
         <div className='hero-container'>
@@ -44,7 +44,7 @@ function Home() {
                             <p className="desc-title">Join now, share your creations with another people and enjoy other creations.</p>
                             <ModalRegisterLogin />
                             <div className="button">
-                                <button variant="" className="btn-login" onClick={handleModalLogin}>
+                                <button className="btn-login" onClick={handleModalLogin}>
                                     Login
                                 </button>
                                 

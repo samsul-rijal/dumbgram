@@ -13,11 +13,36 @@ import Image4 from '../img/Image4.png'
 import Image7 from '../img/Image7.png'
 import Image9 from '../img/Image9.png'
 import Notifikasi from '../Components/Notifikasi'
+import { useContext, useEffect } from 'react';
+import { UserContext } from '../contexts/userContext'
+import { API } from '../config/api'
 
 function FeedExplore() {
     const [showNotif, setShowNotif] = useState(false);	
 
 	const handleShowNotif = () => setShowNotif(!showNotif);
+
+
+    const path = 'http://localhost:5000/uploads/'
+
+    const [state, dispatch] = useContext(UserContext);
+    console.log(state)
+
+    const [ getFeed, setGetFeed ] = useState([])
+
+    useEffect( async () => {
+        try {
+            const getAllFeed = await API.get('/feeds')
+            console.log(getAllFeed)
+
+            setGetFeed(getAllFeed.data.data.feeds)
+
+        } catch (error) {
+            console.log(error.response)
+
+        }
+    },[])
+
     return(
         <div>
             <Navbar fixed="top" className="navbar-right-feed">
@@ -26,7 +51,7 @@ function FeedExplore() {
                     <InputGroup.Prepend>
                         <InputGroup.Text className="icon-serch-feed" id="basic-addon1"><FontAwesomeIcon icon={faSearch} /></InputGroup.Text>
                     </InputGroup.Prepend>
-                    <FormControl className="search-feed" placeholder="Search" />
+                    <input className="search-feed" placeholder="Search" />
                     <p className="title-feed-right">Explore</p>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
@@ -34,7 +59,7 @@ function FeedExplore() {
                         <Link to="/message"><FontAwesomeIcon className="icon-Notifikasi" icon={faPaperPlane} /></Link>
                         <Navbar.Text>
                             <Link to="/createpost">
-                                <Button className="button-post"><span className="plus"><FontAwesomeIcon className="icon-plus" icon={faPlus} /></span> &nbsp;<span className="create">Create Post</span></Button>
+                                <button className="button-post"><span className="plus"><FontAwesomeIcon className="icon-plus" icon={faPlus} /></span> &nbsp;<span className="create">Create Post</span></button>
                             </Link>
                         </Navbar.Text>
                     </Navbar.Collapse>
@@ -42,13 +67,18 @@ function FeedExplore() {
             </Navbar>
 
             <div className="card-head">
+            { getFeed.map((f) => (
                 <Col md={4}>
-                    <Card style={{ width: '18rem' }} className="card-explore">
-                        <Card.Img variant="top" className="img-explore" src={Image1} />
+                    <Card style={{ width: '18rem' }} className="card-feed">
+                        <Card.Img variant="top" className="img-explore" src={path + f.fileName} />
                     </Card>
                 </Col>
+            ))}
 
-                <Col md={4}>
+
+
+
+                {/* <Col md={4}>
                     <Card style={{ width: '18rem' }} className="card-explore">
                         <Card.Img variant="top" className="img-explore" src={Image9} />
                     </Card>
@@ -76,7 +106,7 @@ function FeedExplore() {
                     <Card style={{ width: '18rem' }} className="card-explore">
                         <Card.Img variant="top" className="img-explore" src={Image2} />
                     </Card>
-                </Col>
+                </Col> */}
             </div>
         </div>
     )

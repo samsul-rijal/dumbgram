@@ -10,7 +10,7 @@ function MessageLeft() {
     return (
         <div className="feed-left">
             <Navbar className="img-bar">
-                <Link to="/">
+                <Link to="/feed">
                     <img className="img-bar" src={Dumbgram} alt="dumbgram" />
                 </Link>
             </Navbar>

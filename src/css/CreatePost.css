@@ -1,0 +1,46 @@
+.form-create {
+    margin-top: 160px;
+    margin-left: 20px;
+}
+
+.preview-img img {
+    height: 200px;
+    margin-bottom: 15px;
+    margin-top: -10px;
+    border-radius: 5px;
+}
+
+.btn-post {
+    width: 240px;
+}
+
+.btn-post::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.btn-post::before {
+    content: 'Upload Photos or Video';
+    display: inline-block;
+    border-radius: 5px;
+    padding: 12px 30px;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 12pt;
+    background: linear-gradient(90deg, #4DD4F7 0%, #9090FB 36.46%, #FF6B81 71.35%, #FBDF63 100%);
+}
+
+.caption-post {
+    width: 700px !important;
+    padding-bottom: 220px;
+    background-color: rgba(210, 210, 210, 0.25);
+    border: none;
+    margin-bottom: 2px;
+    color: #FFFFFF;
+    border-radius: 4px;
+    padding-left: 8px;
+    padding-top: 5px;
+    margin-bottom: 8px;
+
+}

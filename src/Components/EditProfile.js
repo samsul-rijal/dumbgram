@@ -1,11 +1,12 @@
 import React from 'react'
 import '../css/Feed.css';
 import { useState } from 'react';
-import { Container, Navbar, InputGroup, FormControl, Button} from 'react-bootstrap'
+import { Container, Navbar, InputGroup, FormControl} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faPaperPlane, faPlus, faBell  } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom'
 import Notifikasi from '../Components/Notifikasi'
+import FormEditProfile from './FormEditProfile';
 
 function EditProfile() {
     const [showNotif, setShowNotif] = useState(false);	
@@ -19,7 +20,7 @@ function EditProfile() {
                     <InputGroup.Prepend>
                         <InputGroup.Text className="icon-serch-feed" id="basic-addon1"><FontAwesomeIcon icon={faSearch} /></InputGroup.Text>
                     </InputGroup.Prepend>
-                    <FormControl className="search-feed" placeholder="Search" />
+                    <input className="search-feed" placeholder="Search" />
                     <p className="title-feed-right">Edit Profile</p>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
@@ -27,21 +28,30 @@ function EditProfile() {
                         <Link to="/message"><FontAwesomeIcon className="icon-Notifikasi" icon={faPaperPlane} /></Link>
                         <Navbar.Text>
                             <Link to="/createpost">
-                                <Button className="button-post"><span className="plus"><FontAwesomeIcon className="icon-plus" icon={faPlus} /></span> &nbsp;<span className="create">Create Post</span></Button>
+                                <button className="button-post"><span className="plus"><FontAwesomeIcon className="icon-plus" icon={faPlus} /></span> &nbsp;<span className="create">Create Post</span></button>
                             </Link>
                         </Navbar.Text>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
 
-            <div className="button-upload">
+            <FormEditProfile />
+
+            {/* <div className="button-upload">
                 <button className="btn-login">
                     Upload Photos
                 </button>
-                <FormControl className="input-name" placeholder="Name" />
-                <FormControl className="input-name" placeholder="Username" />
-                <FormControl className="caption" placeholder="Bio" />
-            </div>
+                <div className="form-edit">
+                    <input className="input-name" placeholder="Name" />
+                    <input className="input-name" placeholder="Username" />
+                    <input className="caption" placeholder="Bio" />
+                </div>
+                <button className="btn-edit">
+                    Save
+                </button>
+            </div> */}
+            
+            
         </div>
         
     )

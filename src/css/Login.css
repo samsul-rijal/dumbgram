@@ -4,11 +4,8 @@
 .modal-title {
     margin-left: 20px;
     margin-top: 41px;
-    font-family: Avenir;
     font-style: normal;
-    font-weight: 800;
     font-size: 36px;
-    line-height: 49px;
     color: white;
 }
 
@@ -28,12 +25,13 @@
     height: 50px;
     border-radius: 5px;
     border: none;
-  }
+    color: white;
+    font-size: 20px;
+}
 
 .title-login {
     text-align: center;
     height: 25px;
-    font-family: Avenir;
     font-size: 18px;
     color: #B1B1B1;
     margin-top: 10px;
@@ -43,3 +41,7 @@
     cursor: pointer;
     color: white;
 }
+
+button:focus {
+    outline: none;
+  }

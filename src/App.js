@@ -9,18 +9,63 @@ import EditProfilePage from './Pages/EditProfilePage';
 import MessagePage from './Pages/MessagePage';
 import Home from './Pages/Home';
 
+import { UserContext } from "./contexts/userContext"
+import { useContext, useEffect } from 'react';
+import { API, setAuthToken } from './config/api'
+
+if(localStorage.token){
+  setAuthToken(localStorage.token)
+}
+
 function App() {
+  const [state, dispatch] = useContext(UserContext);
+
+  const checkUser = async () => {
+    try {
+      const response = await API.get('/check-auth')
+      console.log(response.data.data.user)
+
+      console.log(localStorage.token)
+
+      let payload = response.data.data.user
+      payload.token = localStorage.token
+      console.log(payload)
+
+      dispatch({
+        type: "USER_SUCCESS",
+        payload
+      })
+
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
+
+  console.log(state)
+
+  useEffect(()=>{
+    checkUser()
+  },[])
+
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/feed" exact component={FeedPage} />
-          <Route path="/explore" exact component={ExplorePage} />
-          <Route path="/profileexplore" exact component={FeedProfilePeople} />
-          <Route path="/createpost" exact component={CreatePostPage} />
-          <Route path="/editprofile" exact component={EditProfilePage} />
-          <Route path="/message" exact component={MessagePage} />
+          { (state.isLogin) ?
+            <> 
+              <Route path="/" exact component={Home} />
+              <Route path="/feed" exact component={FeedPage} />
+              <Route path="/explore" exact component={ExplorePage} />
+              <Route path="/profileexplore" exact component={FeedProfilePeople} />
+              <Route path="/createpost" exact component={CreatePostPage} />
+              <Route path="/editprofile" exact component={EditProfilePage} />
+              <Route path="/message" exact component={MessagePage} />
+            </>
+            :
+            <>
+              <Route exact path="/*" component={ Home } />
+            </>
+          }
         </Switch>
       </Router>
     </div>

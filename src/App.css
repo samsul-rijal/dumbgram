@@ -1,9 +1,12 @@
 .App {
-  /* background-color: #0B0B0B;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin); */
   color: white;
+  font-family: 'Manrope', sans-serif;
 }
 
+button:focus {
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+}

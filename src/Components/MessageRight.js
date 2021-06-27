@@ -20,14 +20,14 @@ function MessageRight() {
                     <InputGroup.Prepend>
                         <InputGroup.Text className="icon-serch-feed" id="basic-addon1"><FontAwesomeIcon icon={faSearch} /></InputGroup.Text>
                     </InputGroup.Prepend>
-                    <FormControl className="search-feed" placeholder="Search" />
+                    <input className="search-feed" placeholder="Search" />
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <FontAwesomeIcon className="icon-Notifikasi" icon={faBell} onClick={ handleShowNotif } />
                         <Link to="/message"><FontAwesomeIcon className="icon-Notifikasi" icon={faPaperPlane} /></Link>
                         <Navbar.Text>
                             <Link to="/createpost">
-                                <Button className="button-post"><span className="plus"><FontAwesomeIcon className="icon-plus" icon={faPlus} /></span> &nbsp;<span className="create">Create Post</span></Button>
+                                <button className="button-post"><span className="plus"><FontAwesomeIcon className="icon-plus" icon={faPlus} /></span> &nbsp;<span className="create">Create Post</span></button>
                             </Link>
                         </Navbar.Text>
                     </Navbar.Collapse>

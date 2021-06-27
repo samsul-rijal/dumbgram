@@ -30,7 +30,7 @@ export default function DetailFeed(props) {
 						<Link to="/profileexplore"><img src={ ZaynProfile } alt="zayn"/></Link>
 						<Link to="/profileexplore" className="df-feed-name"><span>Zayn</span></Link>
 						<p className="df-feed-cap">To Begin Again..</p>
-					</div>
+					</div> 
 					<div className="df-comment-people">
 						<section>
 							<img src={ Abdul } alt="egi"/>
